@@ -1,0 +1,221 @@
+/* Layout wrapper */
+
+/* Vertical Navbar */
+.left-section {
+  width: 80px;
+  background: #000;
+  border-left: #becabe;
+}
+
+
+/* Movie container */
+.movie-container {
+  position: relative;
+  /* ✅ Needed for absolute positioning inside */
+  display: flex;
+  width: calc(100% - 80px);
+  height: 80vh;
+}
+
+/* Left (30%) background section */
+.left {
+  width: 30%;
+  background: black
+}
+
+/* Right image section (70%) */
+.movie-image {
+  position: relative;
+  width: 70%;
+  overflow: hidden;
+}
+
+.movie-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+}
+
+/* Gradient overlay using ::after */
+.movie-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #000 0%, transparent 50%, transparent 100%);
+  pointer-events: none;
+  /* So it doesn’t block clicks */
+}
+
+
+
+/* ✅ Movie details as overlay */
+.movie-details {
+  position: absolute;
+  top: 40%;
+  left: 100px;
+  transform: translateY(-50%);
+  max-width: 40%;
+  z-index: 10;
+}
+
+.movie-details h1 {
+  font-size: 3.5rem;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.rating span {
+  margin-right: 10px;
+  margin-bottom: 30px;
+  font-size: 20px;
+  color: white;
+}
+
+.movie-details p {
+  margin: 20px 0;
+  font-size: large;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.watch-btn {
+  background: #17291C;
+  color: white;
+  border: none;
+  padding: 14px 40px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 992px) {
+  .movie-container {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+  }
+
+  .left,
+  .movie-image {
+    width: 100%;
+    height: auto;
+    order: 1;
+    /* Image first */
+  }
+
+  .movie-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(360deg, #000 0%, transparent 50%, transparent 100%);
+    pointer-events: none;
+    /* So it doesn’t block clicks */
+  }
+
+  .movie-details {
+    order: 2;
+    /* Details below image */
+    position: static;
+    transform: none;
+    max-width: 100%;
+    text-align: start;
+    padding: 20px;
+    background-color: #000;
+    /* keep or remove as needed */
+  }
+
+  .movie-details h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .rating span {
+    margin-right: 10px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    color: white;
+  }
+
+  .movie-details p {
+    margin: 20px 0;
+    font-size: medium;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    color: white;
+  }
+
+  .watch-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+
+@media screen and (max-width : 568px) {
+  .movie-container {
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+  }
+
+  .left,
+  .movie-image {
+    width: 100%;
+    height: auto;
+    order: 1;
+    /* Image first */
+  }
+
+  .movie-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(360deg, #000 0%, transparent 50%, transparent 100%);
+    pointer-events: none;
+    /* So it doesn’t block clicks */
+  }
+
+  .movie-details {
+    order: 2;
+    /* Details below image */
+    position: static;
+    transform: none;
+    max-width: 100%;
+    text-align: start;
+    padding: 20px;
+    background-color: #000;
+    /* keep or remove as needed */
+  }
+
+  .movie-details h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .rating span {
+    margin-right: 10px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    color: white;
+  }
+
+  .movie-details p {
+    display: none;
+  }
+
+  .watch-btn {
+    display: none;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}

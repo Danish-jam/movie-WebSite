@@ -1,0 +1,32 @@
+.footer {
+  padding: 20px;
+  background-color: #0F0415;
+  color: #ccc;
+  font-size: clamp(12px, 2vw, 16px); /* Responsive text size */
+  text-align: center;
+}
+
+.footer a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: inherit;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+.social-links {
+  margin-top: 10px;
+}
+
+.social-icon {
+  margin: 0 10px;
+  font-size: clamp(18px, 2.5vw, 24px); /* Responsive icon size */
+  color: #ccc;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #fff;
+}

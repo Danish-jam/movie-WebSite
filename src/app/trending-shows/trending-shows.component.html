@@ -1,0 +1,31 @@
+<div class="movie-slider-container">
+  <div class="title d-flex mt-3 mb-2 mt-sm-0 mb-sm-0">
+    <h2 class="section-title ps-lg-5">
+      Trending Tv Shows
+    </h2>
+    <a class="link my-auto fw-bold ms-3" routerLink="/Trending/TvShows">Explore All</a>
+  </div>
+
+
+  <div class="slider-wrapper ps-lg-5 mt-sm-4">
+    <!-- Left Button -->
+    <button class="scroll-btn left" (click)="scrollLeft()" *ngIf="showLeftBtn">&#10094;</button>
+
+    <!-- Slider -->
+    <div #slider class="movie-slider">
+      <div class="movie-card" *ngFor="let tvShow of trendingShows"  [routerLink]="['/TvShows', tvShow.id]">
+        <img [src]="'https://image.tmdb.org/t/p/w500' + tvShow.poster_path" [alt]="tvShow.original_title">
+        <div class="movie-info d-none d-sm-block">
+          <p class="movie-title fw-bold mb-0">{{ tvShow.original_name }}</p>
+          <p class="rating">⭐⭐⭐⭐⭐ {{ tvShow.vote_average }}</p>
+        </div>
+      </div>
+      <div class="view-all-card" routerLink="/Trending/TvShows">
+        <div class="view-all-content">
+          <span>Explore All</span>
+        </div>
+      </div>
+    </div>
+    <!-- Right Button -->
+    <button class="scroll-btn right" (click)="scrollRight()" *ngIf="showRightBtn">&#10095;</button>
+  </div>

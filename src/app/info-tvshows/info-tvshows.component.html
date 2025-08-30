@@ -1,0 +1,252 @@
+<!-- Left Navbar -->
+<!-- Movie Layout -->
+<div class="movie-container w-100">
+    <!-- 30% left -->
+    <div class="left"></div>
+    <!-- movie-details upside on divs -->
+    <div class="movie-details">
+        <h1>{{selectedTvShow?.original_title}}</h1>
+        <div class="rating">
+            <span class="stars">⭐⭐⭐⭐☆</span>
+            <span>422 Reviews</span>
+            <span>{{selectedTvShow?.release_date}}</span>
+            <span>{{selectedTvShow?.vote_average}}</span>
+            <span>Cert. R</span>
+        </div>
+        <p>
+            {{selectedTvShow?.overview}}
+        </p>
+        <button class="watch-btn fw-bold">▶ Watch Trailer</button>
+    </div>
+
+    <!-- 70% image -->
+    <div class="movie-image">
+        <img [src]="'https://image.tmdb.org/t/p/w500' + selectedTvShow?.poster_path" alt="Movie Poster" />
+    </div>
+</div>
+<ul class="nav custom-nav-tabs mt-lg-3 border-0">
+    <li class="nav-item" (click)="selectTab('overview')">
+        <a class="nav-link" [class.active]="activeTab === 'overview'">OVERVIEW</a>
+    </li>
+    <li class="nav-item" (click)="selectTab('videos')">
+        <a class="nav-link" [class.active]="activeTab === 'videos'">VIDEOS</a>
+    </li>
+    <li class="nav-item" (click)="selectTab('photos')">
+        <a class="nav-link" [class.active]="activeTab === 'photos'">PHOTOS</a>
+    </li>
+</ul>
+
+<div class="tab-content mt-3">
+    <div *ngIf="activeTab === 'overview'">
+        <div class="about ms-xxl-5 ps-5 w-100">
+            <!-- Left Image -->
+            <div class="poster d-none d-lg-block">
+                <img [src]="'https://image.tmdb.org/t/p/w500' + selectedTvShow?.poster_path" class="card-img"
+                    alt="Movie Poster" />
+            </div>
+
+            <!-- Right Content -->
+            <div class="content mb-0 ms-lg-5">
+                <h2 class="section-title ps-0 mb-3">Storyline</h2>
+                <p class="story">
+                    {{selectedTvShow?.overview}}
+                </p>
+
+                <div class="details">
+                    <div class="row-cols-2 row-cols-lg-1">
+                        <div class="cols">
+                            <span class="label">Released</span>
+                            <span class="value">{{selectedTvShow?.release_date}}</span>
+                        </div>
+                        <div class="cols">
+                            <span class="label">Status</span>
+                            <span class="value">{{selectedTvShow?.status}}</span>
+                        </div>
+                        <div class="cols">
+                            <span class="label">Genres</span>
+                            <span class="value tags" *ngFor="let genre of selectedTvShow?.genres">
+                                {{genre?.name}}
+                            </span>
+                        </div>
+                        <div class="cols">
+                            <span class="label">Status</span>
+                            <span class="value">{{selectedTvShow?.status}}</span>
+                        </div>
+                        <div class="cols">
+                            <span class="label">Network</span>
+                            <span class="value">Netflix</span>
+                        </div>
+                        <div class="cols">
+                            <span class="label">Seasons</span>
+                            <span class="value">{{selectedTvShow?.seasons.length}}</span>
+                        </div>
+                        <div class="cols">
+                            <span class="label">Production</span>
+                            <span class="value fw-bold">
+                                <span *ngFor="let production of selectedTvShow?.production_companies"> {{production?.name
+                                    + ","}}</span>
+                            </span>
+                        </div>
+                        <div class="cols">
+                            <span class="label">Type</span>
+                            <span class="value">{{selectedTvShow?.type}}</span>
+                        </div>
+                        <div class="cols">
+                            <span class="label">Language</span>
+                            <span class="value">English</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Icons -->
+                <div class="social">
+                    <a class="me-3" href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733635.png"
+                            alt="Twitter"></a>
+                    <a class="me-3" href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+                            alt="Instagram"></a>
+                    <a class="me-3" href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384062.png"
+                            alt="IMDB"></a>
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="Link"></a>
+                </div>
+            </div>
+        </div>
+        <div class="slider-container px-5 my-4">
+            <h1 class="ms-lg-5 text-white mb-3">Cast</h1>
+            <!-- Left Scroll Button -->
+            <button class="scroll-btn left" (click)="scrollLeft()" aria-label="Scroll Left">&#8249;</button>
+
+            <!-- Slider -->
+            <div class="movie-slider px-lg-5" #slider>
+                <div class="movie-card" [routerLink]="['/person',person?.id]" *ngFor="let person of selectedTvShow?.credits?.cast">
+                    <img [src]="'https://image.tmdb.org/t/p/w500' + person.profile_path"
+                        alt="{{ person.original_name || 'Actor' }}" class="movie-img">
+                    <h6 class="movie-title fw-bold ps-0 mb-2 mt-3">{{ person.name }}</h6>
+                    <p class=" text-secondary">{{ person.character }}</p>
+                </div>
+            </div>
+
+            <!-- Right Scroll Button -->
+            <button class="scroll-btn right" (click)="scrollRight()" aria-label="Scroll Right">&#8250;</button>
+        </div>
+
+
+    </div>
+
+
+    <div *ngIf="activeTab === 'videos'">
+        <div class="container py-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                    <button class="btn btn-success">Behind the Scenes</button>
+                    <span class="text-light ms-2">20 Videos</span>
+                </div>
+            </div>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+                <!-- Card 1 -->
+                <div class="col" *ngFor="let video of selectedTvShow?.videos.results">
+                    <div class="video-card">
+                        <div class="video-thumb">
+                            <img [src]="'https://image.tmdb.org/t/p/w500' + selectedTvShow?.poster_path" alt="Parachute">
+                            <div class="play-icon">
+                                <i class="bi bi-play-circle-fill"></i>
+                            </div>
+                        </div>
+                        <h6 class="video-title mt-2">{{video?.name}}</h6>
+                        <p class="video-category">{{video?.type}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div *ngIf="activeTab === 'photos'">
+        <div class="container py-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="d-flex">
+                    <h3 class="text-white">Backdrops</h3>
+                    <span class="ms-4 my-auto image">{{selectedTvShow?.images.backdrops.length}} 
+                        Images</span>
+                </div>
+            </div>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+                <!-- Card 1 -->
+                <div class="col" *ngFor="let video of selectedTvShow?.images.backdrops">
+                    <div class="video-card ">
+                        <div class="video-thumb rounded-0">
+                            <img [src]="'https://image.tmdb.org/t/p/w500' + video?.file_path" alt="Parachute">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="container py-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="d-flex">
+                    <h3 class="text-white">Logos</h3>
+                    <span class="ms-4 my-auto image">{{selectedTvShow?.images.logos.length}} 
+                        Images</span>
+                </div>
+            </div>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+                <!-- Card 1 -->
+                <div class="col" *ngFor="let video of selectedTvShow?.images.logos">
+                    <div class="video-card ">
+                        <div class="video-thumb rounded-0">
+                            <img [src]="'https://image.tmdb.org/t/p/w500' + video?.file_path" alt="Parachute">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="container py-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="d-flex">
+                    <h3 class="text-white">Posters</h3>
+                    <span class="ms-4 my-auto image">{{selectedTvShow?.images.posters.length}} 
+                        Images</span>
+                </div>
+            </div>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+    
+                <div class="col" *ngFor="let video of selectedTvShow?.images.posters">
+                    <div class="video-card ">
+                        <div class="video-thumb rounded-0">
+                            <img [src]="'https://image.tmdb.org/t/p/w500' + video?.file_path" alt="Parachute">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="movie-slider-container pt-sm-5">
+        <div class="title d-flex mt-3 mb-2 mt-sm-0 mb-sm-0">
+            <h2 class="section-title ps-lg-5 ms-4">
+                More Like This
+            </h2>
+        </div>
+
+
+        <div class="slider-wrapper px-lg-5 mt-sm-4">
+    
+            <button class="scroll-btn left" (click)="scrollLeft()" *ngIf="showLeftBtn">&#10094;</button>
+
+    
+            <div #slider class="movie-slider ps-4">
+                <div class="movie-card" *ngFor="let show of recommendationMovies"  (click)="goToTvShows(show.id)">
+                    <img [src]="'https://image.tmdb.org/t/p/w500' + show.poster_path" [alt]="show.original_title">
+                    <div class="movie-info d-none d-sm-block">
+                        <p class="movie-title fw-bold mb-0">{{ show.original_name }}</p>
+                        <p class="rating">⭐⭐⭐⭐⭐ {{ show.vote_average }}</p>
+                    </div>
+                </div>
+            </div>
+ 
+            <button class="scroll-btn right" (click)="scrollRight()" *ngIf="showRightBtn">&#10095;</button>
+        </div>
+    </div>
+<app-contact></app-contact>
