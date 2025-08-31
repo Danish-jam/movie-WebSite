@@ -14,6 +14,8 @@ import { AllTvShowsComponent } from './all-tv-shows/all-tv-shows.component';
 import { InfoMovieComponent } from './info-movie/info-movie.component';
 import { PersonDetailsComponent } from './person-details/person-details.component';
 import { InfoTvshowsComponent } from './info-tvshows/info-tvshows.component';
+import { SearchMoviesComponent } from './search-movies/search-movies.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,13 +30,14 @@ import { InfoTvshowsComponent } from './info-tvshows/info-tvshows.component';
     AllTvShowsComponent,
     InfoMovieComponent,
     PersonDetailsComponent,
-    InfoTvshowsComponent
+    InfoTvshowsComponent,
+    SearchMoviesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

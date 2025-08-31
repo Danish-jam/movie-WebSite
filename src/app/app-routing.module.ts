@@ -7,6 +7,7 @@ import { AllTvShowsComponent } from './all-tv-shows/all-tv-shows.component';
 import { InfoMovieComponent } from './info-movie/info-movie.component';
 import { PersonDetailsComponent } from './person-details/person-details.component';
 import { InfoTvshowsComponent } from './info-tvshows/info-tvshows.component';
+import { SearchMoviesComponent } from './search-movies/search-movies.component';
 
 
 const routes: Routes = [
@@ -38,13 +39,21 @@ const routes: Routes = [
     path: "Movie/:id",
     component: InfoMovieComponent
   },
-   {
+  {
     path: "person/:id",
     component: PersonDetailsComponent
   },
   {
     path: "TvShows/:id",
     component: InfoTvshowsComponent
+  },
+  {
+    path: "search",
+    component: SearchMoviesComponent
+  },
+  {
+    path: 'Search/:id',
+    component: InfoMovieComponent
   },
   {
     path: "**",

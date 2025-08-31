@@ -4,8 +4,20 @@
         <a class="nav-link" routerLink="/home"><i class="bi bi-house-door"></i></a>
         <a class="nav-link" routerLink="allMovies"><i class="bi bi-camera-reels"></i></a>
         <a class="nav-link" routerLink="/tv"><i class="bi bi-tv"></i></a>
-        <a class="nav-link" routerLink="/search"><i class="bi bi-search"></i></a>
+        <a class="nav-link" (click)="toggleSearchBar($event)">
+            <i class="bi bi-search"></i>
+        </a>
+
     </nav>
+</div>
+
+<!-- Search Bar -->
+<div class="top-search-bar" [class.active]="isSearchActive">
+    <input type="text" placeholder="Search for a Movie, TV Show or Person..." [(ngModel)]="searchQuery"
+        (keyup.enter)="onSearch()" />
+    <button class="close-btn" (click)="closeSearchBar()">
+        <i class="bi bi-x"></i>
+    </button>
 </div>
 
 <!-- Main content full width -->

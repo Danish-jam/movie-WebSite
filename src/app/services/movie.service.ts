@@ -61,19 +61,24 @@ export class MovieService {
     return this.http.get(`${this.apiUrl}/tv/${id}`, { params })
   }
 
+  search(query: string, page: number): Observable<any> {
+    const params = this.buildParams({ query, page: page.toString() });
+    return this.http.get(`${this.apiUrl}/search/multi`, { params })
+  }
+
 
   getRecommended(id: number, page: number, mediaType: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/${mediaType}/${id}/recommendations`, { params: this.buildParams({}) })
   }
 
-getPersonDetails(id: number): Observable<any> {
-  const params = this.buildParams({
-    append_to_response: 'images,combined_credits,external_ids',
-    include_image_language: 'en'
-  });
+  getPersonDetails(id: number): Observable<any> {
+    const params = this.buildParams({
+      append_to_response: 'images,combined_credits,external_ids',
+      include_image_language: 'en'
+    });
 
-  return this.http.get(`${this.apiUrl}/person/${id}`, { params })
-}
+    return this.http.get(`${this.apiUrl}/person/${id}`, { params })
+  }
 
 
   private buildParams(params: any): HttpParams {

@@ -120,7 +120,7 @@
                 <div class="movie-card" [routerLink]="['/person',person?.id]" *ngFor="let person of selectedMovie?.credits?.cast">
                     <img [src]="'https://image.tmdb.org/t/p/w500' + person.profile_path"
                         alt="{{ person.original_name || 'Actor' }}" class="movie-img">
-                    <h6 class="movie-title fw-bold ps-0 mb-0">{{ person.name }}</h6>
+                    <h6 class="movie-title fw-bold ps-0 mb-0 mt-2">{{ person.name }}</h6>
                     <p>{{ person.character }}</p>
                 </div>
             </div>

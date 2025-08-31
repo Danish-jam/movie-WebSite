@@ -1,34 +1,34 @@
 <div class="about ms-xxl-5 ps-5 w-100">
-    <!-- Left Image -->
-    <div class="poster d-none d-lg-block">
-        <img [src]="'https://image.tmdb.org/t/p/w500' + selectedPerson?.profile_path" class="card-img"
-            alt="Movie Poster" />
-    </div>
+  <!-- Left Image -->
+  <div class="poster d-none d-lg-block">
+    <img [src]="'https://image.tmdb.org/t/p/w500' + selectedPerson?.profile_path" class="card-img" alt="Movie Poster" />
+  </div>
 
-    <!-- Right Content -->
-    <div class="content mb-0 ms-lg-5">
-        <h2 class="section-title ps-0 mb-3">{{selectedPerson?.name}}</h2>
-        <p class="story">
-            {{selectedPerson?.biography}}
-        </p>
-        <div class="details">
-            <div class="row-cols-2 row-cols-lg-1">
-                <div class="cols">
-                    <span class="label">Known For</span>
-                    <span class="value">{{selectedPerson?.known_for_department}}</span>
-                </div>
-                <div class="cols">
-                    <span class="label">Bron</span>
-                    <span class="value">{{selectedPerson?.birthday}}</span>
-                </div>
-                <div class="cols">
-                    <span class="label">Place of Birth</span>
-                    <span class="value">{{selectedPerson?.place_of_birth}}</span>
-                </div>
-            </div>
-
+  <!-- Right Content -->
+  <div class="content mb-0 ms-lg-5">
+    <h2 class="section-title ps-0 mb-3">{{selectedPerson?.name}}</h2>
+    <p class="story">
+      {{selectedPerson?.biography}}
+    </p>
+    <div class="details">
+      <div class="row-cols-2 row-cols-lg-1">
+        <div class="cols">
+          <span class="label">Known For</span>
+          <span class="value">{{selectedPerson?.known_for_department}}</span>
         </div>
+        <div class="cols">
+          <span class="label">Bron</span>
+          <span class="value">{{selectedPerson?.birthday}}</span>
+        </div>
+        <div class="cols">
+          <span class="label">Place of Birth</span>
+          <span class="value">{{selectedPerson?.place_of_birth}}</span>
+        </div>
+      </div>
+
     </div>
+  </div>
+
 </div>
 
 
@@ -39,11 +39,16 @@
     <div class="col" *ngFor="let image of selectedPerson?.images?.profiles">
       <div class="profile-card shadow-sm rounded overflow-hidden position-relative">
         <div class="profile-thumb">
-          <img [src]="'https://image.tmdb.org/t/p/w500' + image?.file_path" 
-               alt="Profile Image" 
-               class="img-fluid w-100 rounded">
+          <img [src]="'https://image.tmdb.org/t/p/w500' + image?.file_path" alt="Profile Image"
+            class="img-fluid w-100 rounded">
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="text-center text-white mt-5" *ngIf="spinner">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
   </div>
 </div>

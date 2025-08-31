@@ -1,23 +1,32 @@
+/* Sidebar on the left for large screens */
 .left-section {
   position: fixed;
-  /* make navbar fixed */
   top: 0;
   left: 0;
-  width: 100px;
-  /* sidebar width */
-  height: 100vh;
+  width: 80px;
+  height: 100%;
   background: black;
   display: flex;
-  align-items: start;
-  justify-content: center;
-  z-index: 100;
-  border-right: 1px solid #17291C
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  border-right: 1px solid #17291C;
+  z-index: 999;
 }
 
+/* Navigation icons inside sidebar */
 .vertical-navbar {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.nav-link {
+  color: #fff;
+  font-size: 2rem;
+  padding: 30px 0;
+  text-decoration: none;
 }
 
 .nav-link {
@@ -29,7 +38,7 @@
 
 .nav-link:hover,
 .nav-link.active {
-  color: #3b82f6;
+  color: greenyellow;
   /* highlight */
 }
 
@@ -42,25 +51,72 @@
 }
 
 
-@media screen and (max-width: 992px) {
+.top-search-bar {
+  width: 0;
+  height: 0;
+  position: absolute;
+  overflow: hidden;
+  background-color: #17291C;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.top-search-bar input {
+  width: 80%;
+  padding: 10px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: #17291C;
+}
+
+.top-search-bar.active {
+  width: 100%;
+  height: 80px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #fff;
+  /* White color */
+  cursor: pointer;
+}
+
+
+/* Responsive: move sidebar to bottom on screen width < 992px */
+@media (max-width: 992px) {
   .left-section {
     position: fixed;
-    top: 0;
+    bottom: 0;
+    top: auto;
     left: 0;
     width: 100%;
-    height: 60px; /* make it a top navbar */
-    display: flex;
+    height: 60px;
+    flex-direction: row;
     justify-content: space-around;
-    align-items: center;
     border-right: none;
-    border-bottom: 1px solid #17291C;
-    z-index: 100;
+    border-top: 1px solid #17291C;
+    background-color: black;
   }
 
   .vertical-navbar {
     flex-direction: row;
-    width: 100%; /* horizontal menu */
-    justify-content: space-evenly;
+    gap: 0;
+    width: 100%;
+    justify-content: space-around;
+    padding: 0;
   }
 
   .nav-link {
@@ -69,9 +125,8 @@
   }
 
   .main-section {
-    margin-left: 0; /* remove sidebar space */
-    padding-top: 70px; /* add space for fixed top navbar */
+    margin-left: 0;
+    padding-bottom: 70px;
+    /* ✅ Space for bottom navbar */
   }
 }
-
-

@@ -1,0 +1,19 @@
+<h3 class="section-title text-white pt-3 ps-5 mb-4 ">
+  Search Results
+</h3>
+
+<div class="movie-grid px-5">
+  <div class="movie-card" *ngFor="let result of searchResults" [routerLink]="['/Serach',result.id]">
+    <img [src]="'https://image.tmdb.org/t/p/w500' + result.poster_path" alt="{{result.original_title}}">
+    <div class="movie-info ps-0">
+      <p class="movie-title text-white">{{ result.title }}</p>
+      <p class="rating">⭐⭐⭐⭐⭐ {{ result.vote_average }}</p>
+    </div>
+  </div>
+</div>
+<div class="d-flex justify-content-center text-light py-5" *ngIf="loading">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+

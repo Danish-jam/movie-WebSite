@@ -10,6 +10,7 @@ export class InfoMovieComponent implements OnInit {
   @ViewChild('slider', { static: true }) slider!: ElementRef;
   showLeftBtn: boolean = false;
   showRightBtn: boolean = true;
+  
   id!: any;
   selectedMovie: any;
   activeTab: string = 'overview';

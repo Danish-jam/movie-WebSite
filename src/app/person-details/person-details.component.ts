@@ -7,8 +7,8 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './person-details.component.html',
   styleUrls: ['./person-details.component.css']
 })
-export class PersonDetailsComponent implements OnInit{
-
+export class PersonDetailsComponent implements OnInit {
+  spinner: boolean = true
   personId !: any
   selectedPerson: any
   constructor(private apiService: MovieService, private router: ActivatedRoute,) { }
@@ -16,11 +16,14 @@ export class PersonDetailsComponent implements OnInit{
   ngOnInit(): void {
     this.personId = this.router.snapshot.paramMap.get('id');
     console.log(this.personId);
-    
-    this.apiService.getPersonDetails(this.personId).subscribe((res ) =>{
-    this.selectedPerson = res
-    console.log(res);
-    
-    })
-}
+
+
+    setTimeout(() => {
+      this.apiService.getPersonDetails(this.personId).subscribe((res) => {
+        this.selectedPerson = res
+        this.spinner = false
+      })
+    }, 3000);
+
+  }
 }
