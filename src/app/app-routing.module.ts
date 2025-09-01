@@ -38,13 +38,16 @@ const routes: Routes = [
   {
     path: "Movie/:id",
     component: InfoMovieComponent
+  }, {
+    path: 'Search/:id',
+    component: InfoMovieComponent
   },
   {
     path: "person/:id",
     component: PersonDetailsComponent
-  },{
+  }, {
     path: "tv",
-    component : AllTvShowsComponent
+    component: AllTvShowsComponent
   },
   {
     path: "TvShows/:id",
@@ -53,10 +56,6 @@ const routes: Routes = [
   {
     path: "search",
     component: SearchMoviesComponent
-  },
-  {
-    path: 'Search/:id',
-    component: InfoMovieComponent
   },
   {
     path: "**",

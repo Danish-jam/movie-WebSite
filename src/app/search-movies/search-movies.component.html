@@ -3,7 +3,7 @@
 </h3>
 
 <div class="movie-grid px-5">
-  <div class="movie-card" *ngFor="let result of searchResults" [routerLink]="['/Serach',result.id]">
+  <div class="movie-card" *ngFor="let result of searchResults" [routerLink]="['/Search',result.id]">
     <img [src]="'https://image.tmdb.org/t/p/w500' + result.poster_path" alt="{{result.original_title}}">
     <div class="movie-info ps-0">
       <p class="movie-title text-white">{{ result.title }}</p>

@@ -27,9 +27,7 @@ export class AppComponent {
       this.router.navigate(['/search'], {
         queryParams: { q: this.searchQuery.trim() }
       });
-    } else {
-      this.router.navigate(['/home']); // Redirect if empty
-    }
+    } 
   }
 
 }
