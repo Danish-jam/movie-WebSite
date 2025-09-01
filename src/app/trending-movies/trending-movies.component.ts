@@ -14,12 +14,16 @@ export class TrendingMoviesComponent implements OnInit {
   id: number | undefined;
   showLeftBtn : boolean = false;
   showRightBtn : boolean = true;
+  loading : boolean = true
   constructor(private apiService: MovieService, private router: ActivatedRoute) { }
 
   ngOnInit() {
 
     this.apiService.getTrending("movie", 1).subscribe((res) => {
+      setTimeout(() => {
       this.trendingMovies = res.results
+      this.loading =  false
+      }, 3000);
 
     })
   }

@@ -6,21 +6,23 @@ import { ActivatedRoute, Params } from '@angular/router';
   templateUrl: './trending-shows.component.html',
   styleUrls: ['./trending-shows.component.css']
 })
-export class TrendingShowsComponent implements OnInit{
+export class TrendingShowsComponent implements OnInit {
 
   @ViewChild('slider') slider!: ElementRef;
   trendingShows: any
   id: number | undefined;
-  showLeftBtn : boolean = false;
-  showRightBtn : boolean = true;
+  showLeftBtn: boolean = false;
+  showRightBtn: boolean = true;
+  loading: boolean = true
   constructor(private apiService: MovieService, private router: ActivatedRoute) { }
 
   ngOnInit() {
 
     this.apiService.getTrending("tv", 1).subscribe((res) => {
-      this.trendingShows = res.results
-      console.log(res);
-      
+      setTimeout(() => {
+        this.trendingShows = res.results
+        this.loading = false
+      }, 3000);
     })
   }
   ngAfterViewInit() {

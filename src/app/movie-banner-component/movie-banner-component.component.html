@@ -1,28 +1,33 @@
-
-  <!-- Left Navbar -->
-  <!-- Movie Layout -->
-  <div class="movie-container w-100" >
-    <!-- 30% left -->
-     <div class="left"></div>
-     <!-- movie-details upside on divs -->
-    <div class="movie-details" >
-      <h1 >{{selectedMovie?.original_title}}</h1>
-      <div class="rating">
-        <span class="stars">⭐⭐⭐⭐☆</span>
-        <span>422 Reviews</span>
-        <span>{{selectedMovie?.release_date}}</span>
-        <span>{{selectedMovie?.vote_average}}</span>
-        <span>Cert. R</span>
+<!-- Left Navbar -->
+<!-- Movie Layout -->
+<div class="movie-container w-100">
+  <!-- 30% left -->
+  <div class="left">
+    <div class="d-flex justify-content-center text-light loading pb-5" *ngIf="loading">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
       </div>
-      <p>
-      {{selectedMovie?.overview}}
-      </p>
-      <button class="watch-btn fw-bold">▶ Watch Trailer</button>
-    </div>
-
-    <!-- 70% image -->
-    <div class="movie-image">
-     <img [src]="'https://image.tmdb.org/t/p/w500' + selectedMovie?.poster_path" alt="Movie Poster" />
     </div>
   </div>
+  <!-- movie-details upside on divs -->
+  <div class="movie-details" *ngIf="!loading">
+    <h1>{{selectedMovie?.original_title}}</h1>
+    <div class="rating">
+      <span class="stars">⭐⭐⭐⭐☆</span>
+      <span>422 Reviews</span>
+      <span>{{selectedMovie?.release_date}}</span>
+      <span>{{selectedMovie?.vote_average}}</span>
+      <span>Cert. R</span>
+    </div>
+    <p>
+      {{selectedMovie?.overview}}
+    </p>
+    <button class="watch-btn fw-bold">▶ Watch Trailer</button>
+  </div>
 
+
+  <!-- 70% image -->
+  <div class="movie-image">
+    <img [src]="'https://image.tmdb.org/t/p/w500' + selectedMovie?.poster_path" alt="Movie Poster" />
+  </div>
+</div>

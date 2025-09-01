@@ -352,6 +352,9 @@ body {
 .image{
     color: #aaa;
 }
+.top-loading {
+    margin-top: 50%;
+}
 @media screen and (max-width:992px) {
 
     .movie-card,

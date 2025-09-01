@@ -24,9 +24,12 @@ export class AppComponent {
 
   onSearch() {
     if (this.searchQuery.trim()) {
-      this.router.navigate(['/search'], { queryParams: { q: this.searchQuery.trim() } });
+      this.router.navigate(['/search'], {
+        queryParams: { q: this.searchQuery.trim() }
+      });
     } else {
-      this.router.navigate(['/home']); // when input is empty
+      this.router.navigate(['/home']); // Redirect if empty
     }
   }
+
 }

@@ -15,18 +15,21 @@ export class SearchMoviesComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      this.query = params['query'];
-
-      setTimeout(() => {
-        this.performSearch(this.query);
-        this.loading = false
-      }, 3000);
-    })
+      this.query = params['q'] || '';  // use 'q' because you passed q in onSearch()
+      if (this.query) {
+        setTimeout(() => {
+             this.performSearch(this.query)
+             this.loading = false
+        }, 3000);
+      }
+    });
   }
 
 
+
+
   performSearch(query: string) {
-    this.apiSer.search(query, 1).subscribe((response: any) => {
+    this.apiSer.searchMulti(query, 1).subscribe((response: any) => {
       this.searchResults = response.results
       console.log("Responsive", this.searchResults);
     })

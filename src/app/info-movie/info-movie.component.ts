@@ -10,12 +10,13 @@ export class InfoMovieComponent implements OnInit {
   @ViewChild('slider', { static: true }) slider!: ElementRef;
   showLeftBtn: boolean = false;
   showRightBtn: boolean = true;
-  
+
   id!: any;
   selectedMovie: any;
   activeTab: string = 'overview';
   hours !: number
   minutes !: number
+  loading: boolean = true
   recommendationMovies: any
   constructor(private apiService: MovieService, private router: ActivatedRoute, private route: Router) { }
 
@@ -23,14 +24,18 @@ export class InfoMovieComponent implements OnInit {
     this.id = this.router.snapshot.paramMap.get('id');
     console.log(this.id);
     this.apiService.getMovieFullDetails(this.id).subscribe(response => {
-      this.selectedMovie = response;
-      console.log(this.selectedMovie);
-      this.convertMinutesToHoursAndMinutes(this.selectedMovie.runtime)
+      setTimeout(() => {
+        this.selectedMovie = response;
+        this.convertMinutesToHoursAndMinutes(this.selectedMovie.runtime)
+        this.loading = false
+      }, 3000);
     });
 
     this.apiService.getRecommended(this.id, 1, "movie").subscribe(response => {
-      this.recommendationMovies = response.results;
-      console.log(response);
+      setTimeout(() => {
+        this.recommendationMovies = response.results;
+        this.loading = false
+      }, 3000);
     });
 
     // this.apiService.getYouTubeVideo(this.id, "movie").subscribe(response => {
@@ -87,8 +92,8 @@ export class InfoMovieComponent implements OnInit {
   }
 
   goToMovie(id: number) {
-  this.route.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-    this.route.navigate(['/Movie', id]);
-  });
-}
+    this.route.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.route.navigate(['/Movie', id]);
+    });
+  }
 }

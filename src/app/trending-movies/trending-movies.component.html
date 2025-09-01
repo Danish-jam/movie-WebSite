@@ -6,7 +6,11 @@
     <a class="link my-auto fw-bold ms-3" routerLink="/Trending/Movies">Explore All</a>
   </div>
 
-
+  <div class="d-flex justify-content-center text-light loading pt-5" *ngIf="loading">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
   <div class="slider-wrapper ps-lg-5 mt-sm-4">
     <!-- Left Button -->
     <button class="scroll-btn left" (click)="scrollLeft()" *ngIf="showLeftBtn">&#10094;</button>
@@ -20,7 +24,7 @@
           <p class="rating">⭐⭐⭐⭐⭐ {{ movie.vote_average }}</p>
         </div>
       </div>
-      <div class="view-all-card" routerLink="/Trending/Movies">
+      <div class="view-all-card" routerLink="/Trending/Movies" *ngIf="!loading">
         <div class="view-all-content">
           <span>Explore All</span>
         </div>
@@ -30,5 +34,4 @@
     <!-- Right Button -->
     <button class="scroll-btn right" (click)="scrollRight()" *ngIf="showRightBtn">&#10095;</button>
   </div>
-  </div>
-  
+</div>

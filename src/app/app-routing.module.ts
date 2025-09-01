@@ -20,7 +20,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: "allMovies",
+    path: "Movie",
     component: AllMoviesComponent
   },
   {
@@ -42,6 +42,9 @@ const routes: Routes = [
   {
     path: "person/:id",
     component: PersonDetailsComponent
+  },{
+    path: "tv",
+    component : AllTvShowsComponent
   },
   {
     path: "TvShows/:id",

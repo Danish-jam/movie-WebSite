@@ -1,4 +1,4 @@
-<div class="about ms-xxl-5 ps-5 w-100">
+<div class="about ms-xxl-5 ps-5 w-100" *ngIf="!loading">
   <!-- Left Image -->
   <div class="poster d-none d-lg-block">
     <img [src]="'https://image.tmdb.org/t/p/w500' + selectedPerson?.profile_path" class="card-img" alt="Movie Poster" />
@@ -32,10 +32,10 @@
 </div>
 
 
-<h1 class="text-white text-center mb-4">Profile</h1>
+<h1 class="text-white text-center py-4">Profile</h1>
 
 <div class="container">
-  <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-3">
+  <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-3 pb-5">
     <div class="col" *ngFor="let image of selectedPerson?.images?.profiles">
       <div class="profile-card shadow-sm rounded overflow-hidden position-relative">
         <div class="profile-thumb">
@@ -47,7 +47,7 @@
   </div>
 </div>
 
-<div class="text-center text-white mt-5" *ngIf="spinner">
+<div class="text-center text-white mt-5" *ngIf="loading">
   <div class="spinner-border" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>

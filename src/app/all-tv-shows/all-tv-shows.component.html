@@ -1,4 +1,177 @@
-<h3 class="section-title text-white pt-3 ps-5 mb-4 ">
+<app-movie-banner-component></app-movie-banner-component>
+
+<div class="movie-slider-container">
+  <div class="title d-flex mt-3 mb-2 mt-sm-0 mb-sm-0">
+    <h2 class="section-title ps-lg-5">
+      Popular TV Shows
+    </h2>
+    <a class="link my-auto fw-bold ms-3" routerLink="/Trending/TvShows">Explore All</a>
+  </div>
+
+  <div class="d-flex justify-content-center text-light loading pt-5" *ngIf="loading">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <div class="slider-wrapper ps-lg-5 mt-sm-4">
+    <!-- Left Button -->
+    <button class="scroll-btn left" (click)="scrollLeft()" *ngIf="showLeftBtn">&#10094;</button>
+
+    <!-- Slider -->
+    <div #slider class="movie-slider">
+      <div class="movie-card" *ngFor="let tvShow of popularShow" [routerLink]="['/TvShows', tvShow.id]">
+        <img [src]="'https://image.tmdb.org/t/p/w500' + tvShow.poster_path" [alt]="tvShow.original_title">
+        <div class="movie-info d-none d-sm-block">
+          <p class="movie-title fw-bold mb-0">{{ tvShow.original_name }}</p>
+          <p class="rating">⭐⭐⭐⭐⭐ {{ tvShow.vote_average }}</p>
+        </div>
+      </div>
+      <div class="view-all-card" routerLink="/Trending/TvShows" *ngIf="!loading">
+        <div class="view-all-content">
+          <span>Explore All</span>
+        </div>
+      </div>
+    </div>
+    <!-- Right Button -->
+    <button class="scroll-btn right" (click)="scrollRight()" *ngIf="showRightBtn">&#10095;</button>
+  </div>
+
+
+
+  <div class="movie-slider-container">
+    <div class="title d-flex mt-3 mb-2 mt-sm-0 mb-sm-0">
+      <h2 class="section-title ps-lg-5">
+        Top Rated TV Shows
+      </h2>
+      <a class="link my-auto fw-bold ms-3" routerLink="/Trending/TvShows">Explore All</a>
+    </div>
+
+    <div class="d-flex justify-content-center text-light loading pt-5" *ngIf="loading">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div class="slider-wrapper ps-lg-5 mt-sm-4">
+      <!-- Left Button -->
+      <button class="scroll-btn left" (click)="scrollLeft()" *ngIf="showLeftBtn">&#10094;</button>
+
+      <!-- Slider -->
+      <div #slider class="movie-slider">
+        <div class="movie-card" *ngFor="let tvShow of nowPlayingShow" [routerLink]="['/TvShows', tvShow.id]">
+          <img [src]="'https://image.tmdb.org/t/p/w500' + tvShow.poster_path" [alt]="tvShow.original_title">
+          <div class="movie-info d-none d-sm-block">
+            <p class="movie-title fw-bold mb-0">{{ tvShow.original_name }}</p>
+            <p class="rating">⭐⭐⭐⭐⭐ {{ tvShow.vote_average }}</p>
+          </div>
+        </div>
+        <div class="view-all-card" routerLink="/Trending/TvShows" *ngIf="!loading">
+          <div class="view-all-content">
+            <span>Explore All</span>
+          </div>
+        </div>
+      </div>
+      <!-- Right Button -->
+      <button class="scroll-btn right" (click)="scrollRight()" *ngIf="showRightBtn">&#10095;</button>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="movie-slider-container">
+      <div class="title d-flex mt-3 mb-2 mt-sm-0 mb-sm-0">
+        <h2 class="section-title ps-lg-5">
+          Currently Airing TV Shows
+        </h2>
+        <a class="link my-auto fw-bold ms-3" routerLink="/Trending/TvShows">Explore All</a>
+      </div>
+
+      <div class="d-flex justify-content-center text-light loading pt-5" *ngIf="loading">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      <div class="slider-wrapper ps-lg-5 mt-sm-4">
+        <!-- Left Button -->
+        <button class="scroll-btn left" (click)="scrollLeft()" *ngIf="showLeftBtn">&#10094;</button>
+
+        <!-- Slider -->
+        <div #slider class="movie-slider">
+          <div class="movie-card" *ngFor="let tvShow of airingTodayShow" [routerLink]="['/TvShows', tvShow.id]">
+            <img [src]="'https://image.tmdb.org/t/p/w500' + tvShow.poster_path" [alt]="tvShow.original_title">
+            <div class="movie-info d-none d-sm-block">
+              <p class="movie-title fw-bold mb-0">{{ tvShow.original_name }}</p>
+              <p class="rating">⭐⭐⭐⭐⭐ {{ tvShow.vote_average }}</p>
+            </div>
+          </div>
+          <div class="view-all-card" routerLink="/Trending/TvShows" *ngIf="!loading">
+            <div class="view-all-content">
+              <span>Explore All</span>
+            </div>
+          </div>
+        </div>
+        <!-- Right Button -->
+        <button class="scroll-btn right" (click)="scrollRight()" *ngIf="showRightBtn">&#10095;</button>
+      </div>
+
+
+
+
+      <div class="movie-slider-container">
+        <div class="title d-flex mt-3 mb-2 mt-sm-0 mb-sm-0">
+          <h2 class="section-title ps-lg-5">
+            TV Shows Airing Today
+          </h2>
+          <a class="link my-auto fw-bold ms-3" routerLink="/Trending/TvShows">Explore All</a>
+        </div>
+
+        <div class="d-flex justify-content-center text-light loading pt-5" *ngIf="loading">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        <div class="slider-wrapper ps-lg-5 mt-sm-4">
+          <!-- Left Button -->
+          <button class="scroll-btn left" (click)="scrollLeft()" *ngIf="showLeftBtn">&#10094;</button>
+
+          <!-- Slider -->
+          <div #slider class="movie-slider">
+            <div class="movie-card" *ngFor="let tvShow of onTheAirShow" [routerLink]="['/TvShows', tvShow.id]">
+              <img [src]="'https://image.tmdb.org/t/p/w500' + tvShow.poster_path" [alt]="tvShow.original_title">
+              <div class="movie-info d-none d-sm-block">
+                <p class="movie-title fw-bold mb-0">{{ tvShow.original_name }}</p>
+                <p class="rating">⭐⭐⭐⭐⭐ {{ tvShow.vote_average }}</p>
+              </div>
+            </div>
+            <div class="view-all-card" routerLink="/Trending/TvShows" *ngIf="!loading">
+              <div class="view-all-content">
+                <span>Explore All</span>
+              </div>
+            </div>
+          </div>
+          <!-- Right Button -->
+          <button class="scroll-btn right" (click)="scrollRight()" *ngIf="showRightBtn">&#10095;</button>
+        </div>
+
+
+
+
+
+        <app-contact></app-contact>
+
+
+
+
+
+
+
+
+
+
+        <!-- <h3 class="section-title text-white pt-3 ps-5 mb-4 ">
   Trending Tv Shows 
 </h3>
 
@@ -18,4 +191,4 @@
     <span class="visually-hidden">Loading...</span>
   </div>
 </div>
-
+ -->

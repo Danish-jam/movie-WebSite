@@ -16,6 +16,7 @@ import { PersonDetailsComponent } from './person-details/person-details.componen
 import { InfoTvshowsComponent } from './info-tvshows/info-tvshows.component';
 import { SearchMoviesComponent } from './search-movies/search-movies.component';
 import { FormsModule } from '@angular/forms';
+import { SilderComponent } from './silder/silder.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { FormsModule } from '@angular/forms';
     InfoMovieComponent,
     PersonDetailsComponent,
     InfoTvshowsComponent,
-    SearchMoviesComponent
+    SearchMoviesComponent,
+    SilderComponent
   ],
   imports: [
     BrowserModule,

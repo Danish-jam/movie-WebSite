@@ -20,6 +20,12 @@ export class MovieService {
     return this.http.get(`${this.apiUrl}/${mediaType}/now_playing`, { params })
   }
 
+
+  getCategory(category: string, page: number, mediaType: string): Observable<any> {
+    const params = this.buildParams({ page: page.toString() });
+    return this.http.get(`${this.apiUrl}/${mediaType}/${category}`, { params })
+  }
+
   getYouTubeVideo(id: number, mediaType: string): Observable<any> {
     const params = this.buildParams({});
     return this.http.get(`${this.apiUrl}/${mediaType}/${id}/videos`, { params })
@@ -61,9 +67,15 @@ export class MovieService {
     return this.http.get(`${this.apiUrl}/tv/${id}`, { params })
   }
 
-  search(query: string, page: number): Observable<any> {
-    const params = this.buildParams({ query, page: page.toString() });
-    return this.http.get(`${this.apiUrl}/search/multi`, { params })
+  searchMulti(query: string, page: number = 1): Observable<any> {
+    return this.http.get('https://api.themoviedb.org/3/search/multi', {
+      params: {
+        api_key: 'dd4d819639705d332d531217b4f7c6b6',
+        language: 'en-US',
+        query: query,
+        page: page.toString()
+      }
+    });
   }
 
 

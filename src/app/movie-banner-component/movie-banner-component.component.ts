@@ -11,6 +11,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class MovieBannerComponentComponent implements OnInit {
   id!: number;
   selectedMovie: any;
+  loading: boolean = true
   constructor(private apiService: MovieService, private router: ActivatedRoute,) { }
 
   ngOnInit(): void {
@@ -24,8 +25,10 @@ export class MovieBannerComponentComponent implements OnInit {
       const movies = response.results;
       if (movies.length > 0) {
         const randomIndex = Math.floor(Math.random() * movies.length); // pick random movie
-        this.selectedMovie = movies[randomIndex];
-
+        setTimeout(() => {
+          this.selectedMovie = movies[randomIndex];
+          this.loading = false
+        }, 3000);
       }
     });
   }

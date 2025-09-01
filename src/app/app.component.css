@@ -41,6 +41,9 @@
   color: greenyellow;
   /* highlight */
 }
+.active-link {
+  color: greenyellow !important;
+}
 
 .main-section {
   margin-left: 80px;
