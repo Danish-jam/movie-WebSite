@@ -17,6 +17,14 @@ import { InfoTvshowsComponent } from './info-tvshows/info-tvshows.component';
 import { SearchMoviesComponent } from './search-movies/search-movies.component';
 import { FormsModule } from '@angular/forms';
 import { SilderComponent } from './silder/silder.component';
+import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
+import { RatedMoviesComponent } from './rated-movies/rated-movies.component';
+import { UpcomingMoviesComponent } from './upcoming-movies/upcoming-movies.component';
+import { NowplayingMoviesComponent } from './nowplaying-movies/nowplaying-movies.component';
+import { PopularTvshowComponent } from './popular-tvshow/popular-tvshow.component';
+import { TopratedTvshowComponent } from './toprated-tvshow/toprated-tvshow.component';
+import { CurrentlyTvshowComponent } from './currently-tvshow/currently-tvshow.component';
+import { AiringtodayTvshowComponent } from './airingtoday-tvshow/airingtoday-tvshow.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +41,15 @@ import { SilderComponent } from './silder/silder.component';
     PersonDetailsComponent,
     InfoTvshowsComponent,
     SearchMoviesComponent,
-    SilderComponent
+    SilderComponent,
+    PopularMoviesComponent,
+    RatedMoviesComponent,
+    UpcomingMoviesComponent,
+    NowplayingMoviesComponent,
+    PopularTvshowComponent,
+    TopratedTvshowComponent,
+    CurrentlyTvshowComponent,
+    AiringtodayTvshowComponent,
   ],
   imports: [
     BrowserModule,

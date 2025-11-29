@@ -18,9 +18,9 @@
     <!-- Slider -->
     <div #slider class="movie-slider">
       <div class="movie-card" *ngFor="let movie of trendingMovies" [routerLink]="['/Movie', movie.id]">
-        <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" [alt]="movie.original_title">
-        <div class="movie-info d-none d-sm-block">
-          <p class="movie-title fw-bold mb-0">{{ movie.original_title }}</p>
+        <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{movie.original_title}}">
+        <div class="movie-info">
+          <p class="movie-title text-white">{{ movie.original_title }}</p>
           <p class="rating">⭐⭐⭐⭐⭐ {{ movie.vote_average }}</p>
         </div>
       </div>

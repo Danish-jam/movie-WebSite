@@ -8,6 +8,14 @@ import { InfoMovieComponent } from './info-movie/info-movie.component';
 import { PersonDetailsComponent } from './person-details/person-details.component';
 import { InfoTvshowsComponent } from './info-tvshows/info-tvshows.component';
 import { SearchMoviesComponent } from './search-movies/search-movies.component';
+import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
+import { RatedMoviesComponent } from './rated-movies/rated-movies.component';
+import { UpcomingMoviesComponent } from './upcoming-movies/upcoming-movies.component';
+import { NowplayingMoviesComponent } from './nowplaying-movies/nowplaying-movies.component';
+import { PopularTvshowComponent } from './popular-tvshow/popular-tvshow.component';
+import { TopratedTvshowComponent } from './toprated-tvshow/toprated-tvshow.component';
+import { CurrentlyTvshowComponent } from './currently-tvshow/currently-tvshow.component';
+import { AiringtodayTvshowComponent } from './airingtoday-tvshow/airingtoday-tvshow.component';
 
 
 const routes: Routes = [
@@ -30,9 +38,59 @@ const routes: Routes = [
     ]
   },
   {
+    path: "Movie",
+    children: [
+      {
+        path: "Category",
+        children: [
+          {
+            path: "Popular",
+            component: PopularMoviesComponent
+
+          },
+          {
+            path: "TopRated",
+            component: RatedMoviesComponent
+          },
+          {
+            path: "UpComing",
+            component: UpcomingMoviesComponent
+          },
+          {
+            path: "NowPlaying",
+            component: NowplayingMoviesComponent
+          },
+        ]
+      },
+    ]
+  },
+  {
     path: "Trending",
     children: [
       { path: "TvShows", component: AllTvShowsComponent }
+    ]
+  },
+  {
+    path: "TvShow",
+    children: [
+      {
+        path: "Category",
+        children: [
+          {
+            path: "Popular",
+            component: PopularTvshowComponent
+          }, {
+            path: "TopRated",
+            component: TopratedTvshowComponent
+          }, {
+            path: "Currently",
+            component: CurrentlyTvshowComponent
+          }, {
+            path: "AiringToday",
+            component: AiringtodayTvshowComponent
+          }
+        ]
+      },
     ]
   },
   {

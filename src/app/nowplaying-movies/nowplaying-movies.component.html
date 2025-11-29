@@ -1,11 +1,11 @@
 <h3 class="section-title text-white pt-5 ps-5 mb-4 ">
-  Trending Movies 
+  NowPlaying Movies 
 </h3>
 
 <div class="movie-grid px-5"
      (wheel)="onWheel($event)"
      #scrollContainer>
-  <div class="movie-card" *ngFor="let movie of trendingMovies" [routerLink]="['/Movie', movie.id]">
+  <div class="movie-card" *ngFor="let movie of nowPlayingMovies" [routerLink]="['/Movie', movie.id]">
     <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{movie.original_title}}">
     <div class="movie-info">
       <p class="movie-title text-white">{{ movie.original_title }}</p>

@@ -5,7 +5,7 @@
     <h2 class="section-title ps-lg-5">
       Popular Movies
     </h2>
-    <a class="link my-auto fw-bold ms-3" routerLink="/Trending/Movies">Explore All</a>
+    <a class="link my-auto fw-bold ms-3" routerLink="/Movie/Category//Popular">Explore All</a>
   </div>
 
   <div class="d-flex justify-content-center text-light loading pt-5" *ngIf="loading">
@@ -38,12 +38,12 @@
   </div>
 </div>
 
-<div class="movie-slider-container pt-sm-5">
+<div class="movie-slider-container pt-sm-3">
   <div class="title d-flex mt-3 mb-2 mt-sm-0 mb-sm-0">
     <h2 class="section-title ps-lg-5">
       Top Rated Movies
     </h2>
-    <a class="link my-auto fw-bold ms-3" routerLink="/Trending/Movies">Explore All</a>
+    <a class="link my-auto fw-bold ms-3" routerLink="/Movie/Category//TopRated">Explore All</a>
   </div>
 
   <div class="d-flex justify-content-center text-light loading pt-5" *ngIf="loading">
@@ -76,12 +76,12 @@
   </div>
 </div>
 
-<div class="movie-slider-container pt-sm-5">
+<div class="movie-slider-container pt-sm-3">
   <div class="title d-flex mt-3 mb-2 mt-sm-0 mb-sm-0">
     <h2 class="section-title ps-lg-5">
       Upcoming Movies
     </h2>
-    <a class="link my-auto fw-bold ms-3" routerLink="/Trending/Movies">Explore All</a>
+    <a class="link my-auto fw-bold ms-3" routerLink="/Movie/Category//UpComing">Explore All</a>
   </div>
 
   <div class="d-flex justify-content-center text-light loading pt-5" *ngIf="loading">
@@ -102,7 +102,7 @@
           <p class="rating">⭐⭐⭐⭐⭐ {{ movie.vote_average }}</p>
         </div>
       </div>
-      <div class="view-all-card" routerLink="/Trending/Movies" *ngIf="!loading">
+      <div class="view-all-card" routerLink="/UpComing/Movies" *ngIf="!loading">
         <div class="view-all-content">
           <span>Explore All</span>
         </div>
@@ -115,12 +115,12 @@
 </div>
 
 
-<div class="movie-slider-container pt-sm-5">
+<div class="movie-slider-container pt-sm-3">
   <div class="title d-flex mt-3 mb-2 mt-sm-0 mb-sm-0">
     <h2 class="section-title ps-lg-5">
       Now Playing Movies
     </h2>
-    <a class="link my-auto fw-bold ms-3" routerLink="/Trending/Movies">Explore All</a>
+    <a class="link my-auto fw-bold ms-3" routerLink="/Movie/Category/NowPlaying">Explore All</a>
   </div>
 
   <div class="d-flex justify-content-center text-light loading pt-5" *ngIf="loading">
@@ -141,7 +141,7 @@
           <p class="rating">⭐⭐⭐⭐⭐ {{ movie.vote_average }}</p>
         </div>
       </div>
-      <div class="view-all-card" routerLink="/Trending/Movies" *ngIf="!loading">
+      <div class="view-all-card" routerLink="/NowPlaying/Movies" *ngIf="!loading">
         <div class="view-all-content">
           <span>Explore All</span>
         </div>

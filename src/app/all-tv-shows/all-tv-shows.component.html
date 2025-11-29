@@ -1,11 +1,11 @@
 <app-movie-banner-component></app-movie-banner-component>
 
 <div class="movie-slider-container">
-  <div class="title d-flex mt-3 mb-2 mt-sm-0 mb-sm-0">
+  <div class="title d-flex mt-3 mb-2 mt-sm-0 mb-sm-0 pt-4">
     <h2 class="section-title ps-lg-5">
-      Popular TV Shows
+      Popular TVShows
     </h2>
-    <a class="link my-auto fw-bold ms-3" routerLink="/Trending/TvShows">Explore All</a>
+    <a class="link my-auto fw-bold ms-3" routerLink="/TvShow/Category/Popular">Explore All</a>
   </div>
 
   <div class="d-flex justify-content-center text-light loading pt-5" *ngIf="loading">
@@ -26,7 +26,7 @@
           <p class="rating">⭐⭐⭐⭐⭐ {{ tvShow.vote_average }}</p>
         </div>
       </div>
-      <div class="view-all-card" routerLink="/Trending/TvShows" *ngIf="!loading">
+      <div class="view-all-card" routerLink="/TvShow/Category/Popular" *ngIf="!loading">
         <div class="view-all-content">
           <span>Explore All</span>
         </div>
@@ -38,12 +38,12 @@
 
 
 
-  <div class="movie-slider-container">
+  <div class="movie-slider-container ps-0 pb-0">
     <div class="title d-flex mt-3 mb-2 mt-sm-0 mb-sm-0">
       <h2 class="section-title ps-lg-5">
-        Top Rated TV Shows
+        TopRated TV Shows
       </h2>
-      <a class="link my-auto fw-bold ms-3" routerLink="/Trending/TvShows">Explore All</a>
+      <a class="link my-auto fw-bold ms-3" routerLink="/TvShow/Category/TopRated">Explore All</a>
     </div>
 
     <div class="d-flex justify-content-center text-light loading pt-5" *ngIf="loading">
@@ -64,7 +64,7 @@
             <p class="rating">⭐⭐⭐⭐⭐ {{ tvShow.vote_average }}</p>
           </div>
         </div>
-        <div class="view-all-card" routerLink="/Trending/TvShows" *ngIf="!loading">
+        <div class="view-all-card" routerLink="/TvShow/Category/TopRated" *ngIf="!loading">
           <div class="view-all-content">
             <span>Explore All</span>
           </div>
@@ -81,12 +81,12 @@
 
 
 
-    <div class="movie-slider-container">
+    <div class="movie-slider-container ps-0 pb-0">
       <div class="title d-flex mt-3 mb-2 mt-sm-0 mb-sm-0">
         <h2 class="section-title ps-lg-5">
           Currently Airing TV Shows
         </h2>
-        <a class="link my-auto fw-bold ms-3" routerLink="/Trending/TvShows">Explore All</a>
+        <a class="link my-auto fw-bold ms-3" routerLink="/TvShow/Category/Currently">Explore All</a>
       </div>
 
       <div class="d-flex justify-content-center text-light loading pt-5" *ngIf="loading">
@@ -107,7 +107,7 @@
               <p class="rating">⭐⭐⭐⭐⭐ {{ tvShow.vote_average }}</p>
             </div>
           </div>
-          <div class="view-all-card" routerLink="/Trending/TvShows" *ngIf="!loading">
+          <div class="view-all-card" routerLink="/TvShow/Category/Currently" *ngIf="!loading">
             <div class="view-all-content">
               <span>Explore All</span>
             </div>
@@ -120,12 +120,12 @@
 
 
 
-      <div class="movie-slider-container">
+      <div class="movie-slider-container ps-0 pb-0">
         <div class="title d-flex mt-3 mb-2 mt-sm-0 mb-sm-0">
           <h2 class="section-title ps-lg-5">
-            TV Shows Airing Today
+            TVShows Airing Today
           </h2>
-          <a class="link my-auto fw-bold ms-3" routerLink="/Trending/TvShows">Explore All</a>
+          <a class="link my-auto fw-bold ms-3" routerLink="/TvShow/Category/AiringToday">Explore All</a>
         </div>
 
         <div class="d-flex justify-content-center text-light loading pt-5" *ngIf="loading">
@@ -146,7 +146,7 @@
                 <p class="rating">⭐⭐⭐⭐⭐ {{ tvShow.vote_average }}</p>
               </div>
             </div>
-            <div class="view-all-card" routerLink="/Trending/TvShows" *ngIf="!loading">
+            <div class="view-all-card" routerLink="/TvShow/Category/AiringToday" *ngIf="!loading">
               <div class="view-all-content">
                 <span>Explore All</span>
               </div>

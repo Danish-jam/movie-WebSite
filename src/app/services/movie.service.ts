@@ -14,13 +14,6 @@ export class MovieService {
   private apiKey = 'dd4d819639705d332d531217b4f7c6b6'; // your API key
   private language = 'en-US';
 
-
-  getNowPlaying(mediaType: string, page: number): Observable<any> {
-    const params = this.buildParams({ page: page.toString() });
-    return this.http.get(`${this.apiUrl}/${mediaType}/now_playing`, { params })
-  }
-
-
   getCategory(category: string, page: number, mediaType: string): Observable<any> {
     const params = this.buildParams({ page: page.toString() });
     return this.http.get(`${this.apiUrl}/${mediaType}/${category}`, { params })
@@ -30,14 +23,50 @@ export class MovieService {
     const params = this.buildParams({});
     return this.http.get(`${this.apiUrl}/${mediaType}/${id}/videos`, { params })
   }
+
   getTrending(media: string, page: number): Observable<any> {
     const params = this.buildParams({ page: page.toString() });
     return this.http.get(`${this.apiUrl}/trending/${media}/week`, { params })
   }
 
+  getCurrenltyTvshow(media: string, page: number): Observable<any> {
+    const params = this.buildParams({ page: page.toString() });
+    return this.http.get(`${this.apiUrl}/${media}/on_the_air`, { params });
+  }
+
+  getPopular(media: 'movie' | 'tv', page: number = 1): Observable<any> {
+    const params = this.buildParams({
+      language: 'en-US',
+      page: page.toString()
+    });
+
+    return this.http.get(`${this.apiUrl}/${media}/popular`, { params });
+  }
+
+
+  getRated(media: string, page: number): Observable<any> {
+    const params = this.buildParams({ page: page.toString() });
+    return this.http.get(`${this.apiUrl}/${media}/top_rated`, { params });
+  }
+
+  getUpComing(media: string, page: number): Observable<any> {
+    const params = this.buildParams({ page: page.toString() });
+    return this.http.get(`${this.apiUrl}/${media}/upcoming`, { params });
+  }
+
+  getNowPlaying(media: string, page: number): Observable<any> {
+    const params = this.buildParams({ page: page.toString() });
+    return this.http.get(`${this.apiUrl}/${media}/now_playing`, { params });
+  }
+
   getTvDiscover(page: number): Observable<any> {
     const params = this.buildParams({ page: page.toString() });
     return this.http.get(`${this.apiUrl}/discover/tv`, { params })
+  }
+
+  getAiringTodayTV(media: string, page: number): Observable<any> {
+    const params = this.buildParams({ language: 'en-US', page: page.toString() });
+    return this.http.get(`${this.apiUrl}/${media}/airing_today`, { params });
   }
 
   getUpcomingMovies(page: number): Observable<any> {
@@ -48,6 +77,7 @@ export class MovieService {
   getMovie(id: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/movie/${id}`, { params: this.buildParams({}) })
   }
+
   getMovieFullDetails(id: number): Observable<any> {
     const params = this.buildParams({
       append_to_response: 'videos,credits,images,external_ids,release_dates',
@@ -77,7 +107,6 @@ export class MovieService {
       }
     });
   }
-
 
   getRecommended(id: number, page: number, mediaType: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/${mediaType}/${id}/recommendations`, { params: this.buildParams({}) })
